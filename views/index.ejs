@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h2 class="my-5 display-5">Selamat Datang Di Absensi Kelas</h2>
+      <a href="/absen/add" class="btn btn-primary mb-4"
+        >Silahkan Absen disini</a
+      >
+
+      <% if (murid.length === 0) { %>
+      <div class="alert alert-danger" role="alert">Data Kehadiran kosong</div>
+      <% } %>
+      <table class="table mt-3">
+        <thead>
+          <tr>
+            <th scope="col">No</th>
+            <th scope="col">Nama</th>
+            <th scope="col">Kehadiran Hadir/Ijin</th>
+            <th scope="col">Detail</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% murid.forEach((murids, i) => { %>
+          <tr>
+            <th scope="row"><%= i + 1 %></th>
+            <td><%= murids.nama %></td>
+            <td style="letter-spacing: 1px" class="text-capitalize">
+              <%= murids.kehadiran %>
+            </td>
+            <td>
+              <a
+                class="btn btn-success badge rounded-pill"
+                href="/detail/<%= murids.nama %>"
+                ><i class="bi bi-info-circle me-1"></i>detail</a
+              >
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
